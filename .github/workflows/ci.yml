@@ -1,0 +1,12 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [ main, master ]
+jobs:
+  ci:
+    uses: lacard-labs/.github/.github/workflows/ci.yml@main
+    secrets: inherit
+    with:
+      node-version: 'lts/*'
+      python-version: '3.x'
