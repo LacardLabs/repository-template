@@ -1,4 +1,3 @@
-# 🚨 Update the `language` value below after creating a repo from this template.
 name: CI
 
 on:
@@ -14,8 +13,8 @@ jobs:
   org-ci:
     uses: LacardLabs/.github/.github/workflows/ci.yml@main
     with:
-      language: python  # Choose python | node | rust | none to match your primary stack
+      language: none
       run_tests: true
-      codeql: true
+      codeql: false
       sbom: false
     secrets: inherit
