@@ -23,3 +23,9 @@ Adopt a canonical layout under `docs/adr/`:
 - Contributors always know where to add new records and where to look for related assets.
 - Superseded decisions remain available without cluttering the active ADR list.
 - The template can safely include example content without confusing it for production decisions.
+
+## Links
+
+- docs/adr/template.md
+- docs/adr/archive/README.md
+- docs/adr/assets/README.md
