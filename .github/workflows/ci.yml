@@ -16,6 +16,6 @@ jobs:
     with:
       language: python  # Choose python | node | rust | none to match your primary stack
       run_tests: true
-      codeql: true
+      codeql: false
       sbom: false
     secrets: inherit

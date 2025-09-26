@@ -50,6 +50,7 @@ jobs:
     uses: LacardLabs/.github/.github/workflows/ci.yml@ef34c38ca6a0e2d8ff94757d962a61fefe418ab9
     with:
       language: python   # adjust to node|rust|none when necessary
+      codeql: false      # bump to true once the repo has analyzable source code
 ```
 
 ## Decision Records
