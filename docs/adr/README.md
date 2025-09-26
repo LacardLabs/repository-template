@@ -6,6 +6,24 @@ ADRs capture the narrative behind major technical choices so future contributors
 - Replace a core dependency (database, queue, framework) or change a critical design constraint.
 - Approve an experiment that alters reliability, scalability, or security characteristics.
 
+## Suggested directory structure
+
+The repository template keeps ADRs alongside supporting material so everything ships together:
+
+```text
+docs/
+└── adr/
+    ├── README.md               # Usage guide and index
+    ├── template.md             # Copy for new ADRs
+    ├── assets/                 # Optional diagrams or data per ADR (e.g., assets/0002/)
+    ├── archive/                # Superseded ADRs moved here after linking replacements
+    ├── examples/               # Sample ADRs to reference; delete once the team has real records
+    ├── 0001-introduce-adr-process.md
+    └── 0002-choose-ci-provider.md
+```
+
+Keep live ADRs at the top level for quick discovery. Move superseded records into `archive/` once they link to the replacement decision, and store heavy assets under `assets/<adr-number>/` so Markdown files stay lean. The `examples/` directory contains sample content you can delete once the team adds its first real ADR.
+
 ## How to create an ADR
 
 1. Identify the next sequence number in this directory (`ls docs/adr`); format it as four digits (`0001-...`).
@@ -20,5 +38,9 @@ ADRs capture the narrative behind major technical choices so future contributors
 - When a decision is replaced, leave the original ADR intact and add a "Superseded by" note pointing to the new record.
 - Keep language plain and action-oriented; these documents should answer "what should we keep doing or avoid?" for future teammates.
 - Link the ADR in your pull request under the Docs/Develop section so downstream readers can find it quickly.
+
+## Example ADR
+
+Use `docs/adr/examples/0001-adopt-adr-process.md` as a reference if you are unsure how much detail to capture or how to handle links and consequences. Delete the sample once the team creates its first real ADR.
 
 For additional background, see [Documenting architecture decisions](https://adr.github.io/).
