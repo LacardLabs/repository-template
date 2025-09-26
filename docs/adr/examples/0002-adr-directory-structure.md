@@ -26,6 +26,6 @@ Adopt a canonical layout under `docs/adr/`:
 
 ## Links
 
-- docs/adr/template.md
-- docs/adr/archive/README.md
-- docs/adr/assets/README.md
+- [ADR template](../template.md)
+- [Archive guidance](../archive/README.md)
+- [Assets guidance](../assets/README.md)
