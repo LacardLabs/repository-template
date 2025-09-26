@@ -5,7 +5,16 @@
 > 1. Run `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>`.
 > 2. `cd ~/GitHub/LacardLabs/<repo>` before editing so local scripts and automations resolve correctly.
 > 3. Verify `pwd` outputs `~/GitHub/LacardLabs/<repo>` and `git remote -v` points at `git@github.com:LacardLabs/<repo>.git`.
-> 4. Note any prerequisites—language runtimes, package managers, container images—that new contributors must install.
+> 4. Capture those checks (copy/paste or screenshot) in the README so future contributors can sanity check their own setup.
+> 5. Note any prerequisites—language runtimes, package managers, container images—that new contributors must install.
+
+> 📍 **Example setup transcript**
+> ```bash
+> gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>
+> cd ~/GitHub/LacardLabs/<repo>
+> pwd                 # should resolve to ~/GitHub/LacardLabs/<repo>
+> git remote -v       # should list git@github.com:LacardLabs/<repo>.git
+> ```
 
 Concise paragraph describing what this service or library does and the value it delivers.
 
