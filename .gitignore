@@ -1,0 +1,28 @@
+# Local environments
+.venv/
+.env
+.env.local
+
+# Node
+node_modules/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Build outputs
+build/
+dist/
+coverage/
+htmlcov/
+
+# Docs
+site/
+docs/_build/
+
+# OS/editor cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp
