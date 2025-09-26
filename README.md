@@ -8,7 +8,7 @@ This repository is the starting point for new Lacard Labs projects. It stays int
 
 - [ ] In **Settings → General**, update the repo description, confirm visibility, and assign the owning team.
 - [ ] Clone the repo locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and verify `pwd` resolves to that path.
-- [ ] Edit `.github/workflows/ci.yml` and set `language: <stack>` so CI runs the right toolchain.
+- [ ] Edit `.github/workflows/ci.yml`, keep the `uses:` reference pinned to `LacardLabs/.github/.github/workflows/ci.yml@ef34c38ca6a0e2d8ff94757d962a61fefe418ab9`, and set `language: <stack>` so CI runs the right toolchain. Leave `codeql: false` until the repo has real source code.
 - [ ] Copy `README.template.md` to `README.md`, personalize it for this project, then delete the template file.
 - [ ] Trim `.pre-commit-config.yaml`, `Makefile`, and other scaffolding you do or don't need.
 - [ ] Confirm `main` branch protection (PR review, required CI check, squash-only merges, delete merged branches) matches org policy.
@@ -52,7 +52,7 @@ Once you have a real description, move `README.template.md` to `README.md`, pers
 
 ## Continuous integration
 
-CI is powered by the reusable workflow in `LacardLabs/.github`. Keep the caller workflow minimal, inherit secrets, and set the `language` input so the shared pipeline runs the correct steps for your repo.
+CI is powered by the reusable workflow in `LacardLabs/.github`. Keep the caller workflow minimal, inherit secrets, and set the `language` input so the shared pipeline runs the correct steps for your repo. Stay on the pinned commit (`ef34c38ca6a0e2d8ff94757d962a61fefe418ab9`) until the workflow defines a new interface, and flip `codeql` to `true` once the repository has analyzable source code.
 
 ## License
 

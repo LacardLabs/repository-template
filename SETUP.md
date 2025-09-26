@@ -4,7 +4,7 @@ This checklist duplicates the quick list in `README.md`, but keeps more detail f
 
 - [ ] **Name & visibility** – Update the repository description, topics, and visibility in GitHub settings.
 - [ ] **Clone path** – Run `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and confirm `pwd` resolves to `~/GitHub/LacardLabs/<repo>` before making local edits.
-- [ ] **CI language** – Edit `.github/workflows/ci.yml` and set `language: python|node|rust|none` to match the primary stack.
+- [ ] **CI wiring** – Edit `.github/workflows/ci.yml`, keep the `uses:` line pinned to `LacardLabs/.github/.github/workflows/ci.yml@ef34c38ca6a0e2d8ff94757d962a61fefe418ab9`, and set `language: python|node|rust|none` to match the primary stack. Leave `codeql: false` until the repository has analyzable source, then flip it back on.
 - [ ] **README handoff** – Copy `README.template.md` to `README.md`, tailor it to the project, then remove the template file.
 - [ ] **Scaffold trim** – Prune or extend `.pre-commit-config.yaml`, `Makefile`, `.env.example`, and ADR docs so they reflect actual usage. Remove the `Makefile` if your service won't adopt `make` yet.
 - [ ] **Branch protection** – Ensure `main` requires PR review, the reusable CI status check, squash-only merges, linear history, and deletes branches on merge.
