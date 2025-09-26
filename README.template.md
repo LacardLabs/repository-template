@@ -45,9 +45,13 @@ Common tasks (edit, add, or delete bullets so they match the tooling you actuall
 CI is provided by the Lacard Labs reusable workflow. Make sure the `language` value in `.github/workflows/ci.yml` matches your primary stack (`python`, `node`, `rust`, or `none`).
 
 ```yaml
+permissions:
+  contents: read
+  actions: read
+  security-events: write
 jobs:
   org-ci:
-    uses: LacardLabs/.github/.github/workflows/ci.yml@ef34c38ca6a0e2d8ff94757d962a61fefe418ab9
+    uses: LacardLabs/.github/.github/workflows/ci.yml@main
     with:
       language: python   # adjust to node|rust|none when necessary
       codeql: false      # bump to true once the repo has analyzable source code
