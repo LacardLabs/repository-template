@@ -1,35 +1,44 @@
 # Lacard Labs Repository Template
 
-> ⚙️ **Required action after cloning:** open `.github/workflows/ci.yml` and change the `language:` line to match your stack (`python`, `node`, `rust`, or `none`).
+> ⚙️ After bootstrapping with **Use this template**, create the repo on GitHub, then run `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and `cd ~/GitHub/LacardLabs/<repo>` before editing. Update `.github/workflows/ci.yml` so the `language:` input matches your stack before the first pull request.
 
-This repository is the starting point for new Lacard Labs projects. It stays intentionally thin—policies, automation, and community health live in the `.github` control-plane repo.
+This repository is the starting point for new Lacard Labs projects. It stays intentionally thin—policies, automation, and community health live in the `.github` control-plane repo. All directions below assume you've already cloned the repo to `~/GitHub/LacardLabs/<repo>`.
 
 ## Setup checklist (delete when finished)
 
-- [ ] Rename the repo description and set visibility/owners in GitHub settings.
-- [ ] Update `.github/workflows/ci.yml` → `language: <stack>` so CI runs the right toolchain.
-- [ ] Copy `README.template.md` to `README.md`, rewrite it for this project, then delete the template file.
-- [ ] Trim `.pre-commit-config.yaml`, `Makefile`, and other scaffolding you do or don’t need.
-- [ ] Confirm branch protection on `main` (PR review, required CI check, squash-only, delete merged branches).
-- [ ] Run a smoke commit to verify the reusable CI passes.
+- [ ] In **Settings → General**, update the repo description, confirm visibility, and assign the owning team.
+- [ ] Clone the repo locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and verify `pwd` resolves to that path.
+- [ ] Edit `.github/workflows/ci.yml` and set `language: <stack>` so CI runs the right toolchain.
+- [ ] Copy `README.template.md` to `README.md`, personalize it for this project, then delete the template file.
+- [ ] Trim `.pre-commit-config.yaml`, `Makefile`, and other scaffolding you do or don't need.
+- [ ] Confirm `main` branch protection (PR review, required CI check, squash-only merges, delete merged branches) matches org policy.
+- [ ] Push a quick "smoke" commit to verify the reusable CI passes end to end.
 - [ ] Remove this checklist (and `SETUP.md`) once everything above is complete.
 
 See `SETUP.md` for the same list plus links and reminders that reviewers can follow.
 
 ## How to use the template
 
-1. Click **Use this template** and create a new repository.
-2. Walk through the checklist above so policy, CI, and docs are wired correctly.
-3. Run `pre-commit install` to enable local checks, and trim the hooks you do not need.
-4. Remove unused scaffolding (Make targets, ADR template, etc.) to keep the repo focused.
+1. Click **Use this template** to create the new repository under the Lacard Labs org.
+2. Clone it locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` before editing; all commands below assume you are inside that directory.
+3. Walk through the setup checklist so policy, CI, and docs are wired correctly.
+4. Run `pre-commit install` to register the repo's hooks locally. The defaults auto-fix whitespace issues and run Ruff linting before every commit so broken formatting never reaches CI. Tweak the hook list if your stack needs more (or fewer) checks.
+5. Run `pwd` or `ls` to sanity-check that you are under `~/GitHub/LacardLabs/<repo>` before committing. Remove unused scaffolding (ADR template, etc.) to keep the repo focused. We do not assume `make` usage by default—feel free to delete the Makefile if your project won't adopt it soon.
 
 ## Included developer experience files
 
 - `.editorconfig` — enforces consistent whitespace across editors.
-- `.pre-commit-config.yaml` — lightweight whitespace and Ruff lint hook; extend as needed.
-- `Makefile` — optional `setup`, `lint`, and `test` convenience targets that autodetect common stacks.
+- `.pre-commit-config.yaml` — configures the whitespace fixer and Ruff lint hooks that run via `pre-commit`.
+- `Makefile` — optional `setup`, `lint`, and `test` convenience targets. Delete it if you prefer not to depend on `make` yet.
 - `.env.example` — placeholder for local-only environment variables.
 - `docs/adr/` — starter guide and template for Architecture Decision Records.
+
+## Architecture Decision Records
+
+- Create a new ADR whenever you commit to a meaningful architectural choice (data store, deployment model, auth strategy, cross-service contracts).
+- Copy `docs/adr/template.md` to the next sequence number (e.g., `cp docs/adr/template.md docs/adr/0003-adopt-openapi.md`), update the front matter, and capture context, decision, and consequences.
+- Keep the status field accurate (`Proposed` → `Accepted`/`Rejected`/`Superseded`) and link to the tracking issue or PR in the decision section so readers can follow the history.
+- Commit ADRs alongside the implementation change and mention the record in your PR under the "Develop" or "Docs" callout so reviewers see the rationale.
 
 ## Why ship `README.template.md` instead of auto-populating?
 
