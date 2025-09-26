@@ -24,5 +24,5 @@ ADRs start in the `Proposed` state and transition to `Accepted`, `Rejected`, or 
 
 ## Links
 
-- docs/adr/template.md
-- https://adr.github.io/
+- [ADR template](../template.md)
+- [Documenting architecture decisions](https://adr.github.io/)
