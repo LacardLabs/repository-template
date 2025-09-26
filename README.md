@@ -1,12 +1,13 @@
 # Lacard Labs Repository Template
 
-> ⚙️ After bootstrapping with **Use this template**, clone the repo (`git clone git@github.com:LacardLabs/<repo>.git && cd <repo>`) and update `.github/workflows/ci.yml` so the `language:` input matches your stack before the first pull request.
+> ⚙️ After bootstrapping with **Use this template**, create the repo on GitHub, then run `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and `cd ~/GitHub/LacardLabs/<repo>` before editing. Update `.github/workflows/ci.yml` so the `language:` input matches your stack before the first pull request.
 
-This repository is the starting point for new Lacard Labs projects. It stays intentionally thin—policies, automation, and community health live in the `.github` control-plane repo. All directions below assume you've already cloned the repo locally.
+This repository is the starting point for new Lacard Labs projects. It stays intentionally thin—policies, automation, and community health live in the `.github` control-plane repo. All directions below assume you've already cloned the repo to `~/GitHub/LacardLabs/<repo>`.
 
 ## Setup checklist (delete when finished)
 
 - [ ] In **Settings → General**, update the repo description, confirm visibility, and assign the owning team.
+- [ ] Clone the repo locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and verify `pwd` resolves to that path.
 - [ ] Edit `.github/workflows/ci.yml` and set `language: <stack>` so CI runs the right toolchain.
 - [ ] Copy `README.template.md` to `README.md`, personalize it for this project, then delete the template file.
 - [ ] Trim `.pre-commit-config.yaml`, `Makefile`, and other scaffolding you do or don't need.
@@ -19,10 +20,10 @@ See `SETUP.md` for the same list plus links and reminders that reviewers can fol
 ## How to use the template
 
 1. Click **Use this template** to create the new repository under the Lacard Labs org.
-2. Clone it locally before editing; all commands below assume you are inside the repo directory.
+2. Clone it locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` before editing; all commands below assume you are inside that directory.
 3. Walk through the setup checklist so policy, CI, and docs are wired correctly.
 4. Run `pre-commit install` to register the repo's hooks locally. The defaults auto-fix whitespace issues and run Ruff linting before every commit so broken formatting never reaches CI. Tweak the hook list if your stack needs more (or fewer) checks.
-5. Remove unused scaffolding (ADR template, etc.) to keep the repo focused. We do not assume `make` usage by default—feel free to delete the Makefile if your project won't adopt it soon.
+5. Run `pwd` or `ls` to sanity-check that you are under `~/GitHub/LacardLabs/<repo>` before committing. Remove unused scaffolding (ADR template, etc.) to keep the repo focused. We do not assume `make` usage by default—feel free to delete the Makefile if your project won't adopt it soon.
 
 ## Included developer experience files
 
