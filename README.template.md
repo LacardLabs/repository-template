@@ -47,7 +47,7 @@ CI is provided by the Lacard Labs reusable workflow. Make sure the `language` va
 ```yaml
 jobs:
   org-ci:
-    uses: LacardLabs/.github/.github/workflows/ci.yml@ef34c38ca6a0e2d8ff94757d962a61fefe418ab9
+    uses: LacardLabs/.github/.github/workflows/ci.yml@main
     with:
       language: python   # adjust to node|rust|none when necessary
       codeql: false      # bump to true once the repo has analyzable source code
