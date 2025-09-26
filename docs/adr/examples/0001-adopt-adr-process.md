@@ -1,8 +1,8 @@
 # Adopt ADR Process
 
-- Status: Accepted
-- Date: 2024-04-15
-- Tags: process, documentation
+- **Status:** Accepted
+- **Date:** 2024-04-15
+- **Tags:** process, documentation
 
 ## Context
 
