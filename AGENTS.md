@@ -26,9 +26,9 @@
 - Ensure CI is green and document any toggles or follow-up tasks under "Next steps" in the PR body.
 
 ## Architecture Decision Records (ADRs)
-- Snapshot significant architecture choices under `docs/adr/`; copy `template.md` to the next `000X-title.md` file before editing.
-- Write concise context, decision, and consequence sections; update the status from `Proposed` to `Accepted`, `Rejected`, or `Superseded` once merged.
-- Link supporting issues, diagrams, or PRs in the ADR and reference the record in your pull request narrative. Leave superseded ADRs in place with a note to the successor.
+- Snapshot significant architecture choices under `docs/adr/`; copy `template.md` to the next `000X-title.md` file before editing and keep live ADRs at the top level.
+- Write concise context, decision, and consequence sections; update the status from `Proposed` to `Accepted`, `Rejected`, or `Superseded` once merged. Store heavy assets in `docs/adr/assets/<adr-number>/` and move superseded records into `docs/adr/archive/` after linking to the replacement.
+- Link supporting issues, diagrams, or PRs in the ADR and reference the record in your pull request narrative. Use `docs/adr/examples/0001-adopt-adr-process.md` as the baseline format, deleting `examples/` once the team has its own records.
 
 ## Agent-Specific Notes
 - Automations and scripts assume repositories live under `~/GitHub/LacardLabs/<repo>`.
