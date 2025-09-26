@@ -1,12 +1,21 @@
+# 🚨 Update the `language` value below after creating a repo from this template.
 name: CI
+
 on:
-  pull_request:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
-  ci:
-    uses: lacard-labs/.github/.github/workflows/ci.yml@main
-    secrets: inherit
+  org-ci:
+    uses: LacardLabs/.github/.github/workflows/ci.yml@main
     with:
-      node-version: 'lts/*'
-      python-version: '3.x'
+      language: python  # Choose python | node | rust | none to match your primary stack
+      run_tests: true
+      codeql: true
+      sbom: false
+    secrets: inherit
