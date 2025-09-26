@@ -39,7 +39,7 @@ See `SETUP.md` for the same list plus links and reminders that reviewers can fol
 - Copy `docs/adr/template.md` to the next sequence number (e.g., `cp docs/adr/template.md docs/adr/0003-adopt-openapi.md`), update the front matter, and capture context, decision, and consequences.
 - Keep the status field accurate (`Proposed` → `Accepted`/`Rejected`/`Superseded`) and link to the tracking issue or PR in the decision section so readers can follow the history.
 - Store supporting diagrams or data under `docs/adr/assets/<adr-number>/` (see the README in that directory for naming guidance) and move superseded records to `docs/adr/archive/` once they reference the successor.
-- Use `docs/adr/examples/0001-adopt-adr-process.md` as an onboarding reference, then delete the `examples/` directory when you have real ADRs in place.
+- Use `docs/adr/examples/0001-adopt-adr-process.md` and `docs/adr/examples/0002-adr-directory-structure.md` as onboarding references, then delete the `examples/` directory when you have real ADRs in place.
 - Commit ADRs alongside the implementation change and mention the record in your PR under the "Develop" or "Docs" callout so reviewers see the rationale.
 
 ## Why ship `README.template.md` instead of auto-populating?
