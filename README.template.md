@@ -1,20 +1,26 @@
 # Project Title
 
-> Copy this file to `README.md`, rename the project, and rewrite the sections so they describe your service accurately.
+> Copy this file to `README.md`, rename the project, and rewrite the sections so they describe your service accurately. After
+> creating the repo from the template, run `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and `cd` into that
+> directory before editing so local scripts and automations resolve correctly.
 
 Concise paragraph describing what this service or library does and the value it delivers.
 
 ## Getting Started
 
+Replace the commands below with the canonical workflow for your stack. The template ships a `Makefile` for convenience, but it
+is optional—drop the target examples if your team prefers direct tooling invocations.
+
 ```bash
 python -m venv .venv && source .venv/bin/activate
-make setup
+pip install -r requirements.txt  # or the equivalent for your ecosystem
 pre-commit install
 ```
 
 Common tasks:
-- `make lint` — run configured linters when available (ruff, eslint, etc.)
-- `make test` — execute tests if pytest/npm test are present
+- `make setup` — bootstrap dependencies when you keep the provided Makefile around
+- `make lint` — run configured linters (ruff, eslint, etc.) if the Makefile fits your workflow
+- `make test` — execute tests when your project wires them into the Makefile
 
 ## Continuous Integration
 
