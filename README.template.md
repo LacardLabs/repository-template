@@ -54,7 +54,7 @@ jobs:
 
 ## Decision Records
 
-Document significant technical choices under `docs/adr/`. Start each ADR from `docs/adr/template.md` and track them in `docs/adr/README.md`.
+Track significant technical choices under `docs/adr/`. Copy `template.md` to the next `000X-short-title.md`, keep live ADRs at the root, move superseded records into `archive/`, and store diagrams or data in `assets/<adr-number>/`. The `archive/` and `assets/` directories include README placeholders that describe how to organize their contents. Reference the sample ADRs in `docs/adr/examples/0001-adopt-adr-process.md` and `docs/adr/examples/0002-adr-directory-structure.md`, then delete the `examples/` directory once this project has its first real record.
 
 ## Security
 

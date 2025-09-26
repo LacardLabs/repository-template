@@ -24,8 +24,8 @@
 
 ## Architecture Decision Records (ADRs)
 - Explain when your team expects a new ADR versus updating an existing one.
-- Note the numbering scheme (`0001-short-title.md`), where to copy the template from, and which statuses you use (`Proposed`, `Accepted`, etc.).
-- Tell contributors where to link ADRs (e.g., PR narrative, docs index) so the rationale remains discoverable.
+- Note the numbering scheme (`0001-short-title.md`), where to copy the template from, and which statuses you use (`Proposed`, `Accepted`, etc.). Call out that live ADRs stay at the root, superseded records move into `archive/`, and supporting diagrams belong in `assets/<adr-number>/` (README placeholders explain the directory expectations).
+- Tell contributors where to link ADRs (e.g., PR narrative, docs index) so the rationale remains discoverable. Mention the starter files in `docs/adr/examples/0001-adopt-adr-process.md` and `docs/adr/examples/0002-adr-directory-structure.md` if you want agents to follow or delete them.
 
 ## Agent-Specific Notes
 - Capture assumptions your automations make (e.g., repositories cloned under `~/GitHub/LacardLabs/<repo>`).
