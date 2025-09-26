@@ -2,7 +2,7 @@
 
 > ⚙️ After bootstrapping with **Use this template**, clone the repo (`git clone git@github.com:LacardLabs/<repo>.git && cd <repo>`) and update `.github/workflows/ci.yml` so the `language:` input matches your stack before the first pull request.
 
-This repository is the starting point for new Lacard Labs projects. It stays intentionally thin—policies, automation, and community health live in the `.github` control-plane repo.
+This repository is the starting point for new Lacard Labs projects. It stays intentionally thin—policies, automation, and community health live in the `.github` control-plane repo. All directions below assume you've already cloned the repo locally.
 
 ## Setup checklist (delete when finished)
 
@@ -22,13 +22,13 @@ See `SETUP.md` for the same list plus links and reminders that reviewers can fol
 2. Clone it locally before editing; all commands below assume you are inside the repo directory.
 3. Walk through the setup checklist so policy, CI, and docs are wired correctly.
 4. Run `pre-commit install` to register the repo's hooks locally. The defaults auto-fix whitespace issues and run Ruff linting before every commit so broken formatting never reaches CI. Tweak the hook list if your stack needs more (or fewer) checks.
-5. Remove unused scaffolding (Make targets, ADR template, etc.) to keep the repo focused.
+5. Remove unused scaffolding (ADR template, etc.) to keep the repo focused. We do not assume `make` usage by default—feel free to delete the Makefile if your project won't adopt it soon.
 
 ## Included developer experience files
 
 - `.editorconfig` — enforces consistent whitespace across editors.
 - `.pre-commit-config.yaml` — configures the whitespace fixer and Ruff lint hooks that run via `pre-commit`.
-- `Makefile` — optional `setup`, `lint`, and `test` convenience targets that autodetect common stacks.
+- `Makefile` — optional `setup`, `lint`, and `test` convenience targets. Delete it if you prefer not to depend on `make` yet.
 - `.env.example` — placeholder for local-only environment variables.
 - `docs/adr/` — starter guide and template for Architecture Decision Records.
 
