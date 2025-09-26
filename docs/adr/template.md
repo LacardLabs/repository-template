@@ -1,7 +1,8 @@
 # ADR Title
 
-- Status: Proposed
+- Status: Proposed (Accepted | Rejected | Superseded)
 - Date: YYYY-MM-DD
+- Tags: optional-keywords
 
 ## Context
 
@@ -14,3 +15,7 @@ Explain the choice that was made and the rationale.
 ## Consequences
 
 List the positive and negative outcomes, plus follow-up work if any.
+
+## Links
+
+Reference related issues, pull requests, diagrams, or external docs that informed the decision.

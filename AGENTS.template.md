@@ -22,6 +22,11 @@
 - Restate your team's expectations for commit messages, PR structure, and required artifacts (screenshots, logs, etc.).
 - Link to any additional docs (CONTRIBUTING, architecture notes) reviewers should read before approving.
 
+## Architecture Decision Records (ADRs)
+- Explain when your team expects a new ADR versus updating an existing one.
+- Note the numbering scheme (`0001-short-title.md`), where to copy the template from, and which statuses you use (`Proposed`, `Accepted`, etc.).
+- Tell contributors where to link ADRs (e.g., PR narrative, docs index) so the rationale remains discoverable.
+
 ## Agent-Specific Notes
 - Capture assumptions your automations make (e.g., repositories cloned under `~/GitHub/LacardLabs/<repo>`).
 - Flag common pitfalls, reset procedures, or environment constraints that agents should surface in PRs.

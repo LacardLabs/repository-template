@@ -33,6 +33,13 @@ See `SETUP.md` for the same list plus links and reminders that reviewers can fol
 - `.env.example` — placeholder for local-only environment variables.
 - `docs/adr/` — starter guide and template for Architecture Decision Records.
 
+## Architecture Decision Records
+
+- Create a new ADR whenever you commit to a meaningful architectural choice (data store, deployment model, auth strategy, cross-service contracts).
+- Copy `docs/adr/template.md` to the next sequence number (e.g., `cp docs/adr/template.md docs/adr/0003-adopt-openapi.md`), update the front matter, and capture context, decision, and consequences.
+- Keep the status field accurate (`Proposed` → `Accepted`/`Rejected`/`Superseded`) and link to the tracking issue or PR in the decision section so readers can follow the history.
+- Commit ADRs alongside the implementation change and mention the record in your PR under the "Develop" or "Docs" callout so reviewers see the rationale.
+
 ## Why ship `README.template.md` instead of auto-populating?
 
 The template keeps the default `README.md` focused on setup guardrails, while `README.template.md` is a narrative scaffold for the actual project. Copying it forces each new repo to:
