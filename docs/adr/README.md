@@ -17,9 +17,9 @@ docs/
     ├── template.md             # Copy for new ADRs
     ├── assets/                 # Placeholder README and numbered folders for diagrams (e.g., assets/0002/)
     ├── archive/                # Superseded ADRs moved here after linking replacements (README explains expectations)
-    ├── examples/               # Sample ADRs to reference; delete once the team has real records
-    ├── 0001-introduce-adr-process.md
-    └── 0002-choose-ci-provider.md
+    └── examples/               # Sample ADRs to reference; delete once the team has real records
+        ├── 0001-adopt-adr-process.md
+        └── 0002-adr-directory-structure.md
 ```
 
 Keep live ADRs at the top level for quick discovery. Move superseded records into `archive/` once they link to the replacement decision, and store heavy assets under `assets/<adr-number>/` so Markdown files stay lean. The `archive/` and `assets/` directories include README placeholders that explain how to structure their contents. The `examples/` directory contains sample content you can delete once the team adds its first real ADR.
