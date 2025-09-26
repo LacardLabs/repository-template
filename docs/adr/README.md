@@ -15,14 +15,14 @@ docs/
 └── adr/
     ├── README.md               # Usage guide and index
     ├── template.md             # Copy for new ADRs
-    ├── assets/                 # Optional diagrams or data per ADR (e.g., assets/0002/)
-    ├── archive/                # Superseded ADRs moved here after linking replacements
+    ├── assets/                 # Placeholder README and numbered folders for diagrams (e.g., assets/0002/)
+    ├── archive/                # Superseded ADRs moved here after linking replacements (README explains expectations)
     ├── examples/               # Sample ADRs to reference; delete once the team has real records
     ├── 0001-introduce-adr-process.md
     └── 0002-choose-ci-provider.md
 ```
 
-Keep live ADRs at the top level for quick discovery. Move superseded records into `archive/` once they link to the replacement decision, and store heavy assets under `assets/<adr-number>/` so Markdown files stay lean. The `examples/` directory contains sample content you can delete once the team adds its first real ADR.
+Keep live ADRs at the top level for quick discovery. Move superseded records into `archive/` once they link to the replacement decision, and store heavy assets under `assets/<adr-number>/` so Markdown files stay lean. The `archive/` and `assets/` directories include README placeholders that explain how to structure their contents. The `examples/` directory contains sample content you can delete once the team adds its first real ADR.
 
 ## How to create an ADR
 
@@ -41,6 +41,6 @@ Keep live ADRs at the top level for quick discovery. Move superseded records int
 
 ## Example ADR
 
-Use `docs/adr/examples/0001-adopt-adr-process.md` as a reference if you are unsure how much detail to capture or how to handle links and consequences. Delete the sample once the team creates its first real ADR.
+Use `docs/adr/examples/0001-adopt-adr-process.md` and `docs/adr/examples/0002-adr-directory-structure.md` as references if you are unsure how much detail to capture or how to handle links and consequences. Delete the samples once the team creates its first real ADR.
 
 For additional background, see [Documenting architecture decisions](https://adr.github.io/).
