@@ -36,7 +36,7 @@ Scope: Project
 
 ## Docs & Manuals
 - `docs/QUICKSTART.md` → fast start.
-- `docs/SETUP.md` → environment and tooling details.
+- `SETUP.md` → detailed bootstrap checklist for new repos.
 - `lacard manual` → long-form help for the Lacard CLI.
 - `lacard ?` / `lacard ??` → index and deep help.
 

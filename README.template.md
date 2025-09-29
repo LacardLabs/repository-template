@@ -29,7 +29,7 @@ If you expect extra setup (database migrations, container images, seed data), do
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt  # or the equivalent for your ecosystem
-pre-commit install
+pre-commit install  # wires the local Git hook to run the same checks CI enforces
 ```
 
 Common tasks (edit, add, or delete bullets so they match the tooling you actually rely on):
@@ -42,20 +42,7 @@ Common tasks (edit, add, or delete bullets so they match the tooling you actuall
 
 ## Continuous Integration
 
-CI is provided by the Lacard Labs reusable workflow. Make sure the `language` value in `.github/workflows/ci.yml` matches your primary stack (`python`, `node`, `rust`, or `none`).
-
-```yaml
-permissions:
-  contents: read
-  actions: read
-  security-events: write
-jobs:
-  org-ci:
-    uses: LacardLabs/.github/.github/workflows/ci.yml@main
-    with:
-      language: python   # adjust to node|rust|none when necessary
-      codeql: false      # bump to true once the repo has analyzable source code
-```
+CI defaults to a simple Ruff + pytest workflow stored in `.github/workflows/ci.yml`. Update those commands once you know this project's stack. If you prefer the reusable pipeline in `LacardLabs/.github`, replace the job body with the `uses:` call and set the appropriate inputs there. Keep the permissions block lean (`contents: read`, `actions: read`, `security-events: write`) so uploads succeed, and only enable CodeQL once this repo contains analyzable source code.
 
 ## Decision Records
 
