@@ -1,63 +1,54 @@
 # Lacard Labs Repository Template
 
-> ⚙️ After bootstrapping with **Use this template**, create the repo on GitHub, then run `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and `cd ~/GitHub/LacardLabs/<repo>` before editing. Update `.github/workflows/ci.yml` so the `language:` input matches your stack before the first pull request.
+This repository contains the baseline scaffolding Lacard Labs uses for new projects. It stays intentionally lean—organization-wide policy, issue templates, and reusable workflows live in `LacardLabs/.github`. This template focuses on developer ergonomics (Make targets, scripts, AGENTS guidance, docs) that individual repos depend on.
 
-This repository is the starting point for new Lacard Labs projects. It stays intentionally thin—policies, automation, and community health live in the `.github` control-plane repo. All directions below assume you've already cloned the repo to `~/GitHub/LacardLabs/<repo>`.
+## What's included
 
-## Setup checklist (delete when finished)
+- `README.template.md` — starter copy for the project’s own README.
+- `.pre-commit-config.yaml` + `scripts/hooks/` — repo-local Ruff, whitespace, and merge-conflict hooks.
+- `Makefile` — non-interactive helpers (`setup`, `lint`, `verify`, `codex-bootstrap`, etc.).
+- `AGENTS.md` / `AGENTS.repo-template.md` — layered agent/human guidance.
+- `docs/` — standards, quickstart, setup guidance, and Codex bootstrap template.
+- `.github/workflows/ci.yml` — default Ruff + pytest workflow (swap commands when your stack differs).
+- `.gitattributes`, `.editorconfig`, `.gitignore` — baseline formatting and ignore rules.
 
-- [ ] In **Settings → General**, update the repo description, confirm visibility, and (if you use GitHub Teams) assign an owning team. Solo maintainers can skip the team entry and rely on CODEOWNERS for review coverage.
-- [ ] Clone the repo locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and verify `pwd` resolves to that path.
-- [ ] Edit `.github/workflows/ci.yml`, keep the `uses:` reference pointed at `LacardLabs/.github/.github/workflows/ci.yml@main`, and set `language: <stack>` so CI runs the right toolchain. Leave `codeql: false` until the repo has real source code and ensure the `permissions` block grants `contents: read`, `actions: read`, and `security-events: write` so uploads succeed.
-- [ ] Run `pre-commit install` so the default whitespace and Ruff hooks run locally before every commit. Adjust `.pre-commit-config.yaml` if your stack needs different checks.
-- [ ] Copy `README.template.md` to `README.md`, personalize it for this project, then delete the template file.
-- [ ] Decide what to keep from `.pre-commit-config.yaml`, `Makefile`, `.env.example`, and the sample ADRs under `docs/adr/examples/`. These ship as ready-to-adopt defaults—tune them to fit your workflows or delete the pieces you do not plan to maintain. Keep `docs/adr/archive/` and `docs/adr/assets/` (plus their README placeholders) if you expect to store superseded records or supporting diagrams later.
-- [ ] Confirm `main` branch protection (PR review, required CI check, squash-only merges, delete merged branches) matches org policy. See `LacardLabs/.github/docs/org-settings.md` for the nightly snapshot produced by the org-settings report workflow.
-- [ ] Open a "smoke" pull request with a trivial change to confirm the reusable CI passes end to end. Merge after review, then revert the no-op change if necessary.
-- [ ] Remove this checklist (and `SETUP.md`) once everything above is complete.
+Use this repo to refine the shared experience (update docs, scripts, workflows), then fan those changes out to dependent projects.
 
-See `SETUP.md` for the same list plus links and reminders that reviewers can follow.
+## Using the template
 
-## How to use the template
+1. Click **Use this template** when creating a new Lacard Labs repo.
+2. Clone locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` and `cd` into that directory.
+3. Install tooling with `make dev-install` (installs Ruff, pytest, pre-commit, and registers hooks) or run `pre-commit install` manually.
+4. Decide which scaffolding you need (`Makefile`, `.env.example`, ADR samples) and delete the rest to keep the repo focused.
+5. Copy `README.template.md` to `README.md`, personalize the content, then remove the template file.
 
-1. Click **Use this template** to create the new repository under the Lacard Labs org.
-2. Clone it locally with `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` before editing; all commands below assume you are inside that directory.
-3. Walk through the setup checklist so policy, CI, and docs are wired correctly.
-4. Run `pre-commit install` to register the repo's hooks locally. The defaults auto-fix whitespace issues and run Ruff linting before every commit so broken formatting never reaches CI. Tweak the hook list if your stack needs more (or fewer) checks.
-5. Run `pwd` or `ls` to sanity-check that you are under `~/GitHub/LacardLabs/<repo>` before committing. Remove unused scaffolding (`docs/adr/examples/`, unused Makefile targets, etc.) to keep the repo focused. We do not assume `make` usage by default—feel free to delete the Makefile if your project won't adopt it soon.
+## Bootstrap checklist (drop into the new repo and delete when done)
 
-## Included developer experience files
-
-These scaffolds stay in the template so new repositories can opt in immediately. Keep the pieces you will maintain; delete the rest once you've copied the behavior you need.
-
-- `.editorconfig` — enforces consistent whitespace across editors.
-- `.pre-commit-config.yaml` — configures the whitespace fixer and Ruff lint hooks that run via `pre-commit`. After cloning, run `pre-commit install` so the hooks execute locally before each commit.
-- `Makefile` — optional `setup`, `lint`, and `test` convenience targets (`make setup`, `make lint`, `make test`). Delete it if you prefer not to depend on `make` yet.
-- `.env.example` — placeholder for local-only environment variables. Copy it to `.env` (or similar) and fill in the values your service needs.
-- `docs/adr/` — starter guide, template, and directory structure for Architecture Decision Records (live records at the root, archived decisions under `archive/`, supporting diagrams in `assets/<adr-number>/`, and example ADRs under `examples/`).
-
-## Architecture Decision Records
-
-- Create a new ADR whenever you commit to a meaningful architectural choice (data store, deployment model, auth strategy, cross-service contracts).
-- Copy `docs/adr/template.md` to the next sequence number (e.g., `cp docs/adr/template.md docs/adr/0003-adopt-openapi.md`), update the front matter, and capture context, decision, and consequences.
-- Keep the status field accurate (`Proposed` → `Accepted`/`Rejected`/`Superseded`) and link to the tracking issue or PR in the decision section so readers can follow the history.
-- Store supporting diagrams or data under `docs/adr/assets/<adr-number>/` (see the README in that directory for naming guidance) and move superseded records to `docs/adr/archive/` once they reference the successor.
-- Use `docs/adr/examples/0001-adopt-adr-process.md` and `docs/adr/examples/0002-adr-directory-structure.md` as onboarding references, then delete the `examples/` directory when you have real ADRs in place.
-- Commit ADRs alongside the implementation change and mention the record in your PR under the "Develop" or "Docs" callout so reviewers see the rationale.
-
-## Why ship `README.template.md` instead of auto-populating?
-
-The template keeps the default `README.md` focused on setup guardrails, while `README.template.md` is a narrative scaffold for the actual project. Copying it forces each new repo to:
-
-- Pause and rewrite the summary in plain language for its specific problem.
-- Prune irrelevant sections so stale boilerplate does not linger.
-- Keep the main README intentional, rather than inheriting text that no longer applies.
-
-Once you have a real description, move `README.template.md` to `README.md`, personalize the copy, and delete the template file.
+- [ ] Update the repo description, visibility, and owning team under **Settings → General**.
+- [ ] Confirm the checkout path: `gh repo clone LacardLabs/<repo> ~/GitHub/LacardLabs/<repo>` then `pwd`.
+- [ ] Review `.github/workflows/ci.yml`; adjust lint/test commands or switch to the reusable workflow when you know the stack.
+- [ ] Run `pre-commit install` so Ruff + whitespace hooks run locally before each commit.
+- [ ] Trim or adopt `Makefile`, `.pre-commit-config.yaml`, `.env.example`, and `docs/adr/examples/`.
+- [ ] Set branch protections on `main` (PR review, required checks, squash merges, auto-delete branches).
+- [ ] Open a smoke PR to confirm CI wiring, then revert the no-op change if needed.
 
 ## Continuous integration
 
-CI is powered by the reusable workflow in `LacardLabs/.github`. Keep the caller workflow minimal, inherit secrets, and set the `language` input so the shared pipeline runs the correct steps for your repo. Track `LacardLabs/.github/.github/workflows/ci.yml@main` so fixes roll out automatically, and flip `codeql` to `true` once the repository has analyzable source code.
+The default workflow in `.github/workflows/ci.yml` runs `make ruff-check` and `pytest -q`. Update those commands once your project has a different stack, or swap to the reusable workflow in `LacardLabs/.github`. Keep the permissions block minimal (`contents: read`, `actions: read`, `security-events: write`) and enable CodeQL only after real source lands.
+
+## Why keep `README.template.md`?
+
+New repositories have to consciously rewrite their own README. The template forces you to:
+
+- Summarize the problem in your own words.
+- Document canonical commands (`make verify`, direct tool invocations).
+- Remove sections that don’t apply.
+
+It’s a small speed bump that keeps stale copy from leaking into real projects.
+
+## Extending the template
+
+Have an improvement (script, docs tweak, workflow change)? Open a PR here first. Once merged, run the fan-out tooling (soon to live in the `operations` repo) to push the change into downstream repositories.
 
 ## License
 
