@@ -1,21 +1,38 @@
-name: CI
+name: ci
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-
-permissions:
-  contents: read
-  actions: read
-  security-events: write
+    branches:
+      - "**"
+  pull_request: {}
 
 jobs:
-  org-ci:
-    uses: LacardLabs/.github/.github/workflows/ci.yml@main
-    with:
-      language: none
-      run_tests: true
-      codeql: false
-      sbom: false
-    secrets: inherit
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -U pip ruff
+      - run: make ruff-check
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -U pip pytest
+      - name: pytest
+        run: |
+          set +e
+          pytest -q
+          status=$?
+          set -e
+          if [ "$status" -eq 5 ]; then
+            echo "pytest: no tests collected; skipping"
+            exit 0
+          fi
+          exit "$status"
