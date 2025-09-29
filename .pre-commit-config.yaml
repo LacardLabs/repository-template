@@ -1,12 +1,28 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+  - repo: local
     hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
+      - id: ruff-lint
+        name: ruff lint (fix)
+        entry: ruff
+        args: ["check", "--fix"]
+        language: system
+        types: [python]
+
+      - id: ruff-format
+        name: ruff format
+        entry: ruff
+        args: ["format"]
+        language: system
+        types: [python]
+
+      - id: whitespace-fixer
+        name: whitespace fixer (all files)
+        entry: scripts/hooks/whitespace_fixer.sh
+        language: system
+        files: ".*"
+
       - id: check-merge-conflict
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
-    hooks:
-      - id: ruff
-        args: [--quiet]
+        name: check merge conflicts (all files)
+        entry: scripts/hooks/check_merge_conflict.sh
+        language: system
+        files: ".*"
