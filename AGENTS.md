@@ -11,6 +11,7 @@ A dedicated guide for coding agents (and humans) to run this project consistentl
 - **Full words, not flags (Lacard CLIs).** Lacard-owned CLIs prefer phrase-like commands. Third-party tools (ruff, pytest, git) use their standard flags.
 - **Discoverability:** `<cmd> ?` (index), `<cmd> ??` (deep help); quote them if your shell would glob.
 - **Diff-first.** Propose patches/PRs with evidence; avoid silent changes.
+- **Keep it lean.** Treat this template as the minimal baseline—remove outdated scaffolding and document any additions so downstream repos only inherit what they actually need.
 
 ## Stack & Layout
 - Build/Test/Lint:
