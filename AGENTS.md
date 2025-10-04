@@ -71,6 +71,7 @@ A dedicated guide for coding agents (and humans) to run this project consistentl
 - Use `make` or `just` targets for common tasks.
 - Use `make help` (index), `make help-all` (detailed), and `make verify` for the lint/test gate. Quote sugar aliases if you need `make '?'` / `make '??'`.
 - Commands must be **prompt-free**; if a tool prompts by default, pass flags or environment to avoid interactivity.
+- For lacard CLI verbs and punctuation-based help, consult `../lacardlabs/docs/help-conventions.md` and keep this pointer fresh when the doc moves.
 
 ## AGENTS.md layering (how multiple files behave)
 - We keep layers **distinct by responsibility** (Global = voice/ergonomics, Repo = workflows/commands, Subdir = feature briefs). Some agents read the nearest file first; Codex supports layered guidance including a user‑level file at `~/.codex/AGENTS.md` in addition to repo files. We design to avoid conflicts. :contentReference[oaicite:2]{index=2}
